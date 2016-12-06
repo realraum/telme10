@@ -34,11 +34,16 @@ import (
 	"github.com/spreadspace/telgo"
 )
 
+func greet(c *telgo.Client, args []string) bool {
+	c.Sayln("hello world")
+	return true
+}
+
 func main() {
 	cmdlist := make(telgo.CmdList)
 
 	s := telgo.NewServer(":7023", "", cmdlist, nil)
-	if err := s.Run(); err != nil {
+	if err := s.RunWithGreeter(greet); err != nil {
 		fmt.Printf("telnet server returned: %s", err)
 	}
 }
