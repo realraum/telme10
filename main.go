@@ -31,9 +31,11 @@ package main
 
 import (
 	"fmt"
-	"github.com/spreadspace/telgo"
 	"os"
 	"time"
+
+	"github.com/coreos/go-systemd/activation"
+	"github.com/spreadspace/telgo"
 )
 
 func greet(c *telgo.Client, args []string) bool {
@@ -84,10 +86,29 @@ func greet(c *telgo.Client, args []string) bool {
 func main() {
 	cmdlist := make(telgo.CmdList)
 
-	s, err := telgo.NewServer(":7023", "", cmdlist, nil)
+	listeners, err := activation.Listeners(true)
 	if err != nil {
-		fmt.Println("failed to initialize the server:", err)
-		os.Exit(1)
+	}
+
+	fmt.Printf("got %d sockets from systemd\n", len(listeners))
+	var s *telgo.Server
+	if len(listeners) == 0 {
+		if len(os.Args) < 2 {
+			fmt.Println("please specify a address to listen on")
+			os.Exit(2)
+		}
+		if s, err = telgo.NewServer(os.Args[1], "", cmdlist, nil); err != nil {
+			fmt.Println("failed to initialize the server:", err)
+			os.Exit(1)
+		}
+	} else {
+		if len(listeners) > 1 {
+			fmt.Println("warning got more than one socket from systemd, only using the first", err)
+		}
+		if s, err = telgo.NewServerFromListener(listeners[0], "", cmdlist, nil); err != nil {
+			fmt.Println("failed to initialize the server:", err)
+			os.Exit(1)
+		}
 	}
 	if err = s.RunWithGreeter(greet); err != nil {
 		fmt.Println("telnet server returned:", err)

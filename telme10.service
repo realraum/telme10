@@ -1,0 +1,16 @@
+[Unit]
+Description=realraum birthday telnet server
+After=local-fs.target
+
+[Service]
+User=telme10
+Group=telme10
+Type=simple
+ExecStart=/usr/local/bin/telme10
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectSystem=full
+ProtectHome=yes
+
+[Install]
+WantedBy=multi-user.target

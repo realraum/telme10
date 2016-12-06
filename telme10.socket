@@ -1,0 +1,8 @@
+[Unit]
+Description=realraum birthday telnet server socket
+
+[Socket]
+ListenStream=23
+
+[Install]
+WantedBy=sockets.target
