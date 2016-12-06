@@ -74,6 +74,8 @@ func greet(c *telgo.Client, args []string) bool {
 	c.Sayln("")
 	c.Sayln("We'll see you at the party!")
 	c.Sayln("")
+	c.Sayln("    https://github.com/realraum/telme10")
+	c.Sayln("")
 	time.Sleep(1 * time.Second)
 	return true
 }
