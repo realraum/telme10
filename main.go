@@ -32,10 +32,49 @@ package main
 import (
 	"fmt"
 	"github.com/spreadspace/telgo"
+	"time"
 )
 
 func greet(c *telgo.Client, args []string) bool {
-	c.Sayln("hello world")
+	c.Sayln("")
+	c.Sayln("Hello!")
+	c.Sayln("")
+
+	time.Sleep(1 * time.Second)
+	c.Sayln("Did you know: realraum will be celebrating its 10th birthday")
+	c.Sayln("on the 18th of March 2017?")
+	c.Sayln("")
+
+	time.Sleep(1 * time.Second)
+	c.Sayln("you should come by!")
+	c.Sayln("")
+
+	time.Sleep(3 * time.Second)
+	c.Sayln("fun fun fun!")
+	c.Sayln("")
+
+	time.Sleep(3 * time.Second)
+	c.Sayln("come to the party ... we mean it!")
+	c.Sayln("")
+	c.Sayln("you have now 10s to decide:")
+
+	c.Say("deciding ...   0.0%%\r")
+	for i := uint(0); i < 100; i++ {
+		select {
+		case <-c.Cancel:
+			c.Sayln("\r\naborted.")
+			return true
+		default:
+		}
+		time.Sleep(100 * time.Millisecond)
+		c.Say("deciding ... %5.1f%%\r", (float64(i)/float64(100))*100.0)
+	}
+	c.Sayln("deciding ... 100.0%% ... done.")
+
+	c.Sayln("")
+	c.Sayln("We'll see you at the party!")
+	c.Sayln("")
+	time.Sleep(1 * time.Second)
 	return true
 }
 
@@ -44,6 +83,6 @@ func main() {
 
 	s := telgo.NewServer(":7023", "", cmdlist, nil)
 	if err := s.RunWithGreeter(greet); err != nil {
-		fmt.Printf("telnet server returned: %s", err)
+		fmt.Println("telnet server returned:", err)
 	}
 }
