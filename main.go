@@ -49,41 +49,50 @@ func wait(length time.Duration, cancel <-chan bool) bool {
 	}
 }
 
+func printLogo(c *telgo.Client) {
+	for _, line := range logoBW72 {
+		c.Sayln(" " + line)
+	}
+}
+
 type Greeter struct {
 }
 
 func (g Greeter) Exec(c *telgo.Client, args []string) bool {
 	c.Sayln("")
-	c.Sayln("Hello!")
+	c.Sayln("")
+	printLogo(c)
+	c.Sayln("")
+	c.Sayln("       Hello!")
 	c.Sayln("")
 
 	if wait(1*time.Second, c.Cancel) {
 		return true
 	}
-	c.Sayln("Did you know: realraum will be celebrating its 10th birthday")
-	c.Sayln("on the 18th of March 2017?")
+	c.Sayln("     Did you know: realraum will be celebrating its 10th birthday")
+	c.Sayln("     on the 18th of March 2017?")
 	c.Sayln("")
 
 	if wait(1*time.Second, c.Cancel) {
 		return true
 	}
-	c.Sayln("you should come by!")
+	c.Sayln("     you should come by!")
 	c.Sayln("")
 
 	if wait(3*time.Second, c.Cancel) {
 		return true
 	}
-	c.Sayln("fun fun fun!")
+	c.Sayln("     fun fun fun!")
 	c.Sayln("")
 
 	if wait(3*time.Second, c.Cancel) {
 		return true
 	}
-	c.Sayln("come to the party ... we mean it!")
+	c.Sayln("     come to the party ... we mean it!")
 	c.Sayln("")
-	c.Sayln("you have now 10s to decide:")
+	c.Sayln("     you have now 10s to decide:")
 
-	c.Say("  deciding ...   0.0%%\r")
+	c.Say("       deciding ...   0.0%%\r")
 DECISION:
 	for i := uint(0); i < 100; i++ {
 		select {
@@ -92,18 +101,18 @@ DECISION:
 		default:
 		}
 		time.Sleep(100 * time.Millisecond)
-		c.Say("  deciding ... %5.1f%%\r", (float64(i)/float64(100))*100.0)
+		c.Say("      deciding ... %5.1f%%\r", (float64(i)/float64(100))*100.0)
 	}
-	c.Sayln("  deciding ... 100.0%% ... done.")
+	c.Sayln("      deciding ... 100.0%% ... done.")
 	c.Sayln("")
 
-	c.Prompt = "are you coming? "
+	c.Prompt = "     are you coming?  "
 	return false
 }
 
 func answer(c *telgo.Client, args []string) bool {
 	if len(args) > 1 {
-		c.Sayln("  yes or no?")
+		c.Sayln("       yes or no?")
 		return false
 	}
 
@@ -112,7 +121,7 @@ func answer(c *telgo.Client, args []string) bool {
 		fallthrough
 	case "yes":
 		c.Sayln("")
-		c.Sayln("Great! We'll see you at the party then.")
+		c.Sayln("     Great! We'll see you at the party then.")
 	case "n":
 		fallthrough
 	case "no":
@@ -124,7 +133,7 @@ func answer(c *telgo.Client, args []string) bool {
 	}
 
 	c.Sayln("")
-	c.Sayln("    https://github.com/realraum/telme10")
+	c.Sayln("         https://github.com/realraum/telme10")
 	c.Sayln("")
 	time.Sleep(1 * time.Second)
 	return true
