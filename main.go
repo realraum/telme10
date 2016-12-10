@@ -38,44 +38,91 @@ import (
 	"github.com/spreadspace/telgo"
 )
 
-func greet(c *telgo.Client, args []string) bool {
+func wait(length time.Duration, cancel <-chan bool) bool {
+	t := time.NewTimer(length)
+	defer t.Stop()
+	select {
+	case <-t.C:
+		return false
+	case <-cancel:
+		return true
+	}
+}
+
+type Greeter struct {
+}
+
+func (g Greeter) Exec(c *telgo.Client, args []string) bool {
 	c.Sayln("")
 	c.Sayln("Hello!")
 	c.Sayln("")
 
-	time.Sleep(1 * time.Second)
+	if wait(1*time.Second, c.Cancel) {
+		return true
+	}
 	c.Sayln("Did you know: realraum will be celebrating its 10th birthday")
 	c.Sayln("on the 18th of March 2017?")
 	c.Sayln("")
 
-	time.Sleep(1 * time.Second)
+	if wait(1*time.Second, c.Cancel) {
+		return true
+	}
 	c.Sayln("you should come by!")
 	c.Sayln("")
 
-	time.Sleep(3 * time.Second)
+	if wait(3*time.Second, c.Cancel) {
+		return true
+	}
 	c.Sayln("fun fun fun!")
 	c.Sayln("")
 
-	time.Sleep(3 * time.Second)
+	if wait(3*time.Second, c.Cancel) {
+		return true
+	}
 	c.Sayln("come to the party ... we mean it!")
 	c.Sayln("")
 	c.Sayln("you have now 10s to decide:")
 
-	c.Say("deciding ...   0.0%%\r")
+	c.Say("  deciding ...   0.0%%\r")
+DECISION:
 	for i := uint(0); i < 100; i++ {
 		select {
 		case <-c.Cancel:
-			c.Sayln("\r\naborted.")
-			return true
+			break DECISION
 		default:
 		}
 		time.Sleep(100 * time.Millisecond)
-		c.Say("deciding ... %5.1f%%\r", (float64(i)/float64(100))*100.0)
+		c.Say("  deciding ... %5.1f%%\r", (float64(i)/float64(100))*100.0)
 	}
-	c.Sayln("deciding ... 100.0%% ... done.")
-
+	c.Sayln("  deciding ... 100.0%% ... done.")
 	c.Sayln("")
-	c.Sayln("We'll see you at the party!")
+
+	c.Prompt = "are you coming? "
+	return false
+}
+
+func answer(c *telgo.Client, args []string) bool {
+	if len(args) > 1 {
+		c.Sayln("  yes or no?")
+		return false
+	}
+
+	switch args[0] {
+	case "y":
+		fallthrough
+	case "yes":
+		c.Sayln("")
+		c.Sayln("Great! We'll see you at the party then.")
+	case "n":
+		fallthrough
+	case "no":
+		c.Sayln("")
+		c.Sayln("Sorry to hear! You're missing out on a great experience.")
+	default:
+		c.Sayln("  yes or no?")
+		return false
+	}
+
 	c.Sayln("")
 	c.Sayln("    https://github.com/realraum/telme10")
 	c.Sayln("")
@@ -110,7 +157,7 @@ func main() {
 			os.Exit(1)
 		}
 	}
-	if err = s.RunWithGreeter(greet); err != nil {
+	if err = s.Run(Greeter{}, answer); err != nil {
 		fmt.Println("telnet server returned:", err)
 	}
 }
