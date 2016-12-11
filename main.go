@@ -126,9 +126,9 @@ func answer(c *telgo.Client, args []string) bool {
 		fallthrough
 	case "no":
 		c.Sayln("")
-		c.Sayln("Sorry to hear! You're missing out on a great experience.")
+		c.Sayln("     Sorry to hear! You're missing out on a great experience.")
 	default:
-		c.Sayln("  yes or no?")
+		c.Sayln("       yes or no?")
 		return false
 	}
 
