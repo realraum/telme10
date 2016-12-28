@@ -21,7 +21,7 @@ function overwriteLine(element, text, delay) {
         function() {
             element.text(text + '\n');
             //console.log(text);
-            window.scrollTo(0,document.body.scrollHeight);
+            //window.scrollTo(0,document.body.scrollHeight);
         },
         globalDelay
     )
@@ -72,6 +72,9 @@ $(function () {
     var $output = $('.output');
     $output.text('');
 
+    printLine($output, 'Trying 2a02:3e0:4000:1::56...');
+    printLine($output, 'Connected to entrance.realraum.at.');
+    printLine($output, 'Escape character is \'^]\'.');
 
     printLine($output, '');
     printLine($output, '');
@@ -114,7 +117,8 @@ $(function () {
     setTimeout(
         function() {
             $body.on('keypress', function (event) {
-                console.log(event.which);
+                globalDelay = 0;
+                //console.log(event.which);
                 if (event.which === 121 && input === '') {
                     input += 'y';
                 }
@@ -130,11 +134,9 @@ $(function () {
                 if (event.which === 111 && input === 'n') {
                     input += 'o';
                 }
-                $output.text('     are you coming?  ' + input + '_\n');
-                window.scrollTo(0,document.body.scrollHeight);
+                overwriteLine($output, '     are you coming?  ' + input + '_');
                 if (event.which === 13 && (input === 'y' || input === 'yes')) {
                     $body.off('keypress');
-                    globalDelay = 0;
                     $output = $('.output4');
                     printLine($output, '     Great! We\'ll see you at the party then.');
 

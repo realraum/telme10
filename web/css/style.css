@@ -17,6 +17,7 @@ code {
 }
 
 pre {
+    min-width: 42em;
     color: #5cb85c;
     text-align: left;
     line-height: 1.2em;
