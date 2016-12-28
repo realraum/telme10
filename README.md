@@ -2,7 +2,7 @@
 
 Telnet-based invitation to realraum's 10th birthday party.
 
-Try it out with:  `telnet 10.realraum.at`
+Try it out:  `telnet 10.r3.at`
 
 
     3-clause BSD
