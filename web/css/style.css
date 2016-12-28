@@ -1,0 +1,22 @@
+body {
+    color: #5cb85c;
+    background-color: #1f2021;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+div {
+    display: inline-block;
+}
+
+code {
+    margin: 0 auto;
+}
+
+pre {
+    color: #5cb85c;
+    text-align: left;
+}
