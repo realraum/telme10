@@ -136,7 +136,6 @@ $(function () {
                     $body.off('keypress');
                     globalDelay = 0;
                     $output = $('.output4');
-                    printLine($output, '');
                     printLine($output, '     Great! We\'ll see you at the party then.');
 
                     printLine($output, '');
@@ -147,7 +146,6 @@ $(function () {
                     $body.off('keypress');
                     $output = $('.output4');
                     globalDelay = 0;
-                    printLine($output, '');
                     printLine($output, '     Sorry to hear! You\'re missing out on a great experience.');
 
                     printLine($output, '');
