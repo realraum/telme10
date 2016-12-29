@@ -59,7 +59,7 @@ type Greeter struct {
 }
 
 func (g Greeter) Exec(c *telgo.Client, args []string) bool {
-	fmt.Println("new client from:", c.Conn.RemoteAddr())
+	fmt.Printf("client(%s): connected\n", c.Conn.RemoteAddr())
 
 	c.Sayln("")
 	c.Sayln("")
@@ -115,6 +115,7 @@ DECISION:
 func answer(c *telgo.Client, args []string) bool {
 	if len(args) > 1 {
 		c.Sayln("       yes or no?")
+		fmt.Printf("client(%s) said: %q\n", c.Conn.RemoteAddr(), args)
 		return false
 	}
 
@@ -124,13 +125,16 @@ func answer(c *telgo.Client, args []string) bool {
 	case "yes":
 		c.Sayln("")
 		c.Sayln("     Great! We'll see you at the party then.")
+		fmt.Printf("client(%s) wants to come to the party!\n", c.Conn.RemoteAddr())
 	case "n":
 		fallthrough
 	case "no":
 		c.Sayln("")
 		c.Sayln("     Sorry to hear! You're missing out on a great experience.")
+		fmt.Printf("client(%s) won't show up :(\n", c.Conn.RemoteAddr())
 	default:
 		c.Sayln("       yes or no?")
+		fmt.Printf("client(%s) said: %q\n", c.Conn.RemoteAddr(), args)
 		return false
 	}
 
