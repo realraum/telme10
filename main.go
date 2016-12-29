@@ -59,6 +59,8 @@ type Greeter struct {
 }
 
 func (g Greeter) Exec(c *telgo.Client, args []string) bool {
+	fmt.Println("new client from:", c.Conn.RemoteAddr())
+
 	c.Sayln("")
 	c.Sayln("")
 	printLogo(c)
@@ -144,9 +146,10 @@ func main() {
 
 	listeners, err := activation.Listeners(true)
 	if err != nil {
+		fmt.Printf("error while getting socket form systemd", err)
+		os.Exit(1)
 	}
 
-	fmt.Printf("got %d sockets from systemd\n", len(listeners))
 	var s *telgo.Server
 	if len(listeners) == 0 {
 		if len(os.Args) < 2 {
@@ -157,7 +160,9 @@ func main() {
 			fmt.Println("failed to initialize the server:", err)
 			os.Exit(1)
 		}
+		fmt.Println("running telnet server on", os.Args[1])
 	} else {
+		fmt.Printf("got %d sockets from systemd\n", len(listeners))
 		if len(listeners) > 1 {
 			fmt.Println("warning got more than one socket from systemd, only using the first", err)
 		}
@@ -165,6 +170,7 @@ func main() {
 			fmt.Println("failed to initialize the server:", err)
 			os.Exit(1)
 		}
+		fmt.Println("running telnet server on", listeners[0].Addr())
 	}
 	if err = s.Run(Greeter{}, answer); err != nil {
 		fmt.Println("telnet server returned:", err)
