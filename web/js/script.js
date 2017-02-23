@@ -139,6 +139,21 @@ $(function () {
                     $body.off('keypress');
                     $output = $('.output4');
                     printLine($output, '     Great! We\'ll see you at the party then.');
+                    printLine($output, '     expect DJ Music, Food, Tschunk, Games and more');
+                    printLine($output, '');
+                    printLine($output, '     2017-03-18 from 18:00 till it\'s over');
+                    printLine($output, '');
+                    printLine($output, '     Find the place:');
+                    printLine($output, '     realraum, Brockmanngasse 15, 8010 Graz');
+                    printLine($output, '     http://osm.org/go/0Iz~oIpTW?m=&node=668061696');
+                    printLine($output, '');
+                    printLine($output, '     Save the date:');
+                    printLine($output, '     https://plus.google.com/u/0/events/cqiq6003lok2qd9jcqmh4u4p8d4');
+                    printLine($output, '     https://10.r3.at/10r3.ics');
+                    printLine($output, '');
+                    printLine($output, '     Get more Info:');
+                    printLine($output, '     https://wiki.realraum.at/unterkunft');
+                    printLine($output, '     idle at irc://#realraum@irc.oftc.net');
 
                     printLine($output, '');
                     printLine($output, '         https://github.com/realraum/telme10');

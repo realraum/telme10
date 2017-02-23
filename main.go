@@ -125,12 +125,30 @@ func answer(c *telgo.Client, args []string) bool {
 	case "yes":
 		c.Sayln("")
 		c.Sayln("     Great! We'll see you at the party then.")
+		c.Sayln("")
+		c.Sayln("     expect DJ Music, Food, Tschunk, Games and more")
+		c.Sayln("")
+		c.Sayln("     2017-03-18 from 18:00 till it's over")
+		c.Sayln("")
+		c.Sayln("     Find the place:")
+		c.Sayln("     realraum, Brockmanngasse 15, 8010 Graz")
+		c.Sayln("     http://osm.org/go/0Iz~oIpTW?m=&node=668061696")
+		c.Sayln("")
+		c.Sayln("     Save the date:")
+		c.Sayln("     https://plus.google.com/u/0/events/cqiq6003lok2qd9jcqmh4u4p8d4")
+		c.Sayln("     https://10.r3.at/10r3.ics")
+		c.Sayln("")
+		c.Sayln("     Get more Info:")
+		c.Sayln("     https://wiki.realraum.at/unterkunft")
+		c.Sayln("     idle at irc://#realraum@irc.oftc.net")
 		fmt.Printf("client(%s) wants to come to the party!\n", c.Conn.RemoteAddr())
 	case "n":
 		fallthrough
 	case "no":
 		c.Sayln("")
 		c.Sayln("     Sorry to hear! You're missing out on a great experience.")
+		c.Sayln("     We trust in your ability to listen to great music and have lot's")
+		c.Sayln("     of fun with great food and tschunk at home though.")
 		fmt.Printf("client(%s) won't show up :(\n", c.Conn.RemoteAddr())
 	default:
 		c.Sayln("       yes or no?")
