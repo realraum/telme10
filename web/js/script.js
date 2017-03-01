@@ -133,7 +133,7 @@ $(function () {
             }, 500);
 
 
-            $body.on('keypress mousedown', function (event) {
+            $body.on('keypress touchstart', function (event) {
                 globalDelay = 0;
                 //console.log(event);
                 //console.log(event.which);
@@ -152,13 +152,13 @@ $(function () {
                 if (event.which === 111 && input === 'n') {
                     input += 'o';
                 }
-                if (event.type == 'mousedown') {
+                if (event.type == 'touchstart') {
                     input = 'yes';
                 }
                 overwriteLine($output, '     are you coming?  ' + input + '_');
-                if ((event.which === 13 || event.type == 'mousedown') && (input === 'y' || input === 'yes')) {
+                if ((event.which === 13 || event.type == 'touchstart') && (input === 'y' || input === 'yes')) {
                     clearInterval(blinkIntervalId);
-                    $body.off('keypress mousedown');
+                    $body.off('keypress touchstart');
                     $output = $('.output4');
                     printLine($output, '     Great! We\'ll see you at the party then.');
                     printLine($output, '     expect DJ Music, Food, Tschunk, Games and more');
