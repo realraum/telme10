@@ -107,6 +107,7 @@ $(function () {
     $output = $('.output3');
     printLine($output, '     are you coming?  _');
 
+
     var $body = $('body');
 
     // yes: 121, 101, 115
@@ -116,8 +117,25 @@ $(function () {
     var input = '';
     setTimeout(
         function() {
-            $body.on('keypress', function (event) {
+            globalDelay = 0;
+
+            var underscore = true;
+            var blinkIntervalId = setInterval(function () {
                 globalDelay = 0;
+                //console.log('interval!');
+                if (underscore) {
+                    overwriteLine($output, '     are you coming?  ' + input, 0);
+                    underscore = false;
+                } else {
+                    overwriteLine($output, '     are you coming?  ' + input + '_', 0);
+                    underscore = true;
+                }
+            }, 500);
+
+
+            $body.on('keypress mousedown', function (event) {
+                globalDelay = 0;
+                //console.log(event);
                 //console.log(event.which);
                 if (event.which === 121 && input === '') {
                     input += 'y';
@@ -134,9 +152,13 @@ $(function () {
                 if (event.which === 111 && input === 'n') {
                     input += 'o';
                 }
+                if (event.type == 'mousedown') {
+                    input = 'yes';
+                }
                 overwriteLine($output, '     are you coming?  ' + input + '_');
-                if (event.which === 13 && (input === 'y' || input === 'yes')) {
-                    $body.off('keypress');
+                if ((event.which === 13 || event.type == 'mousedown') && (input === 'y' || input === 'yes')) {
+                    clearInterval(blinkIntervalId);
+                    $body.off('keypress mousedown');
                     $output = $('.output4');
                     printLine($output, '     Great! We\'ll see you at the party then.');
                     printLine($output, '     expect DJ Music, Food, Tschunk, Games and more');
