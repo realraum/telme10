@@ -140,7 +140,7 @@ func answer(c *telgo.Client, args []string) bool {
 		c.Sayln("")
 		c.Sayln("     Get more Info:")
 		c.Sayln("     https://wiki.realraum.at/unterkunft")
-		c.Sayln("     idle at irc://#realraum@irc.oftc.net")
+		c.Sayln("     idle at irc://irc.oftc.net/#realraum")
 		fmt.Printf("client(%s) wants to come to the party!\n", c.Conn.RemoteAddr())
 	case "n":
 		fallthrough

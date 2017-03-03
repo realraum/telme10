@@ -12,7 +12,7 @@ div {
     display: inline-block;
 }
 
-code {
+pre.code {
     margin: 0 auto;
 }
 
@@ -21,4 +21,16 @@ pre {
     color: #5cb85c;
     text-align: left;
     line-height: 1.2em;
+}
+
+pre a:link {
+    color: #5cb85c;
+}
+
+pre a:visited {
+    color: #5cb85c;
+}
+
+pre a:hover {
+    color: #5cb85c;
 }

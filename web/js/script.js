@@ -167,18 +167,18 @@ $(function () {
                     printLine($output, '');
                     printLine($output, '     Find the place:');
                     printLine($output, '     realraum, Brockmanngasse 15, 8010 Graz');
-                    printLine($output, '     http://osm.org/go/0Iz~oIpTW?m=&node=668061696');
+                    printLine($output, '     <a href="http://osm.org/go/0Iz~oIpTW?m=&node=668061696">http://osm.org/go/0Iz~oIpTW?m=&node=668061696</a>');
                     printLine($output, '');
                     printLine($output, '     Save the date:');
-                    printLine($output, '     https://plus.google.com/u/0/events/cqiq6003lok2qd9jcqmh4u4p8d4');
-                    printLine($output, '     https://10.r3.at/10r3.ics');
+                    printLine($output, '     <a href="https://plus.google.com/u/0/events/cqiq6003lok2qd9jcqmh4u4p8d4">https://plus.google.com/u/0/events/cqiq6003lok2qd9jcqmh4u4p8d4</a>');
+                    printLine($output, '     <a href="https://10.r3.at/10r3.ics">https://10.r3.at/10r3.ics</a>');
                     printLine($output, '');
                     printLine($output, '     Get more Info:');
-                    printLine($output, '     https://wiki.realraum.at/unterkunft');
-                    printLine($output, '     idle at irc://#realraum@irc.oftc.net');
+                    printLine($output, '     <a href="https://wiki.realraum.at/unterkunft">https://wiki.realraum.at/unterkunft</a>');
+                    printLine($output, '     idle at <a href="irc://irc.oftc.net/#realraum">irc://irc.oftc.net/#realraum</a>');
 
                     printLine($output, '');
-                    printLine($output, '         https://github.com/realraum/telme10');
+                    printLine($output, '         <a href="https://github.com/realraum/telme10">https://github.com/realraum/telme10</a>');
                     printLine($output, '');
                 }
                 if (event.which === 13 && (input === 'n' || input === 'no')) {
