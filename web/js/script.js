@@ -145,7 +145,7 @@ $(function () {
     $output.text('');
 
     printLine($output, 'Trying 2a02:3e0:4000:1::56...');
-    printLine($output, 'Connected to entrance.realraum.at.');
+    printLine($output, 'Connected to 10.r3.at.');
     printLine($output, 'Escape character is \'^]\'.');
 
     printLine($output, '');
