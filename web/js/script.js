@@ -14,6 +14,37 @@ function printLine(element, text, delay) {
     )
 }
 
+var keydiv;
+function addButtons(element) {
+    var delay = defaultDelay;
+    globalDelay += delay;
+    setTimeout(
+        function() {
+			keydiv = document.createElement("div");
+			keydiv.setAttribute("class","keydiv");
+			var keyY = document.createElement("a");
+			keyY.setAttribute("class","key");
+			keyY.append(document.createTextNode("Y"))
+			$(keyY).click(chooseYes);
+			var keyN = document.createElement("a");
+			keyN.setAttribute("class","key");
+			keyN.append(document.createTextNode("N"));
+			$(keyY).click(chooseNo);
+			keydiv.append(keyY);
+			keydiv.append(keyN);
+			element.append(keydiv);
+            window.scrollTo(0,document.body.scrollHeight);
+        },
+        globalDelay
+    )
+}
+
+function removeButtons() {
+	if (keydiv)	{
+		keydiv.parentElement.removeChild(keydiv);
+	}
+}
+
 function overwriteLine(element, text, delay) {
     delay = delay || defaultDelay;
     globalDelay += delay;
@@ -25,6 +56,45 @@ function overwriteLine(element, text, delay) {
         },
         globalDelay
     )
+}
+
+
+function chooseYes($body) {
+	clearInterval(blinkIntervalId);
+    $body.off('keypress touchstart');
+    $output = $('.output4');
+    printLine($output, '     Great! We\'ll see you at the party then.');
+    printLine($output, '     expect DJ Music, Food, Tschunk, Games and more');
+    printLine($output, '');
+    printLine($output, '     2017-03-18 from 18:00 till it\'s over');
+    printLine($output, '');
+    printLine($output, '     Find the place:');
+    printLine($output, '     realraum, Brockmanngasse 15, 8010 Graz');
+    printLine($output, '     <a href="http://osm.org/go/0Iz~oIpTW?m=&node=668061696">http://osm.org/go/0Iz~oIpTW?m=&node=668061696</a>');
+    printLine($output, '');
+    printLine($output, '     Save the date:');
+    printLine($output, '     <a href="https://plus.google.com/u/0/events/cqiq6003lok2qd9jcqmh4u4p8d4">https://plus.google.com/u/0/events/cqiq6003lok2qd9jcqmh4u4p8d4</a>');
+    printLine($output, '     <a href="https://10.r3.at/10r3.ics">https://10.r3.at/10r3.ics</a>');
+    printLine($output, '');
+    printLine($output, '     Get more Info:');
+    printLine($output, '     <a href="https://wiki.realraum.at/unterkunft">https://wiki.realraum.at/unterkunft</a>');
+    printLine($output, '     idle at <a href="irc://irc.oftc.net/#realraum">irc://irc.oftc.net/#realraum</a>');
+
+    printLine($output, '');
+    printLine($output, '         <a href="https://github.com/realraum/telme10">https://github.com/realraum/telme10</a>');
+    printLine($output, '');
+}
+
+function chooseNo($body) {
+	clearInterval(blinkIntervalId);
+    $body.off('keypress');
+    $output = $('.output4');
+    globalDelay = 0;
+    printLine($output, '     Sorry to hear! You\'re missing out on a great experience.');
+
+    printLine($output, '');
+    printLine($output, '         https://github.com/realraum/telme10');
+    printLine($output, '');
 }
 
 
@@ -105,8 +175,8 @@ $(function () {
     }
 
     $output = $('.output3');
-    printLine($output, '     are you coming?  _');
-
+    printLine($output, '     are you coming?  <span id="underscore">_</span>');
+    addButtons($output);
 
     var $body = $('body');
 
@@ -124,16 +194,17 @@ $(function () {
                 globalDelay = 0;
                 //console.log('interval!');
                 if (underscore) {
-                    overwriteLine($output, '     are you coming?  ' + input, 0);
+                	document.getElementById("underscore").style="visibility:hidden;";
                     underscore = false;
                 } else {
-                    overwriteLine($output, '     are you coming?  ' + input + '_', 0);
+                    document.getElementById("underscore").style="visibility:visible;";
                     underscore = true;
                 }
             }, 500);
 
 
-            $body.on('keypress touchstart', function (event) {
+
+            $body.on('keypress', function (event) {
                 globalDelay = 0;
                 //console.log(event);
                 //console.log(event.which);
@@ -157,39 +228,10 @@ $(function () {
                 }
                 overwriteLine($output, '     are you coming?  ' + input + '_');
                 if ((event.which === 13 || event.type == 'touchstart') && (input === 'y' || input === 'yes')) {
-                    clearInterval(blinkIntervalId);
-                    $body.off('keypress touchstart');
-                    $output = $('.output4');
-                    printLine($output, '     Great! We\'ll see you at the party then.');
-                    printLine($output, '     expect DJ Music, Food, Tschunk, Games and more');
-                    printLine($output, '');
-                    printLine($output, '     2017-03-18 from 18:00 till it\'s over');
-                    printLine($output, '');
-                    printLine($output, '     Find the place:');
-                    printLine($output, '     realraum, Brockmanngasse 15, 8010 Graz');
-                    printLine($output, '     <a href="http://osm.org/go/0Iz~oIpTW?m=&node=668061696">http://osm.org/go/0Iz~oIpTW?m=&node=668061696</a>');
-                    printLine($output, '');
-                    printLine($output, '     Save the date:');
-                    printLine($output, '     <a href="https://plus.google.com/u/0/events/cqiq6003lok2qd9jcqmh4u4p8d4">https://plus.google.com/u/0/events/cqiq6003lok2qd9jcqmh4u4p8d4</a>');
-                    printLine($output, '     <a href="https://10.r3.at/10r3.ics">https://10.r3.at/10r3.ics</a>');
-                    printLine($output, '');
-                    printLine($output, '     Get more Info:');
-                    printLine($output, '     <a href="https://wiki.realraum.at/unterkunft">https://wiki.realraum.at/unterkunft</a>');
-                    printLine($output, '     idle at <a href="irc://irc.oftc.net/#realraum">irc://irc.oftc.net/#realraum</a>');
-
-                    printLine($output, '');
-                    printLine($output, '         <a href="https://github.com/realraum/telme10">https://github.com/realraum/telme10</a>');
-                    printLine($output, '');
+                    chooseYes($body);
                 }
                 if (event.which === 13 && (input === 'n' || input === 'no')) {
-                    $body.off('keypress');
-                    $output = $('.output4');
-                    globalDelay = 0;
-                    printLine($output, '     Sorry to hear! You\'re missing out on a great experience.');
-
-                    printLine($output, '');
-                    printLine($output, '         https://github.com/realraum/telme10');
-                    printLine($output, '');
+                    chooseNo($body);
                 }
             });
         },

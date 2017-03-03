@@ -1,3 +1,10 @@
+@font-face {
+	font-family: 'KeyCaps';
+	src: url('./KeyCapsFLF.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
 body {
     color: #5cb85c;
     background-color: #1f2021;
@@ -33,4 +40,18 @@ pre a:visited {
 
 pre a:hover {
     color: #5cb85c;
+}
+
+a.key {
+	font-family: KeyCaps;
+	font-size: 30pt;
+	color:black;
+	background-color:white;
+	padding:0;
+	margin:3px;
+}
+
+div.keydiv {
+	float:right; margin-right:40%;
+	color:black;
 }
