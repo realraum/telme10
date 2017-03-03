@@ -29,7 +29,7 @@ function addButtons(element) {
 			var keyN = document.createElement("a");
 			keyN.setAttribute("class","key");
 			keyN.append(document.createTextNode("N"));
-			$(keyY).click(chooseNo);
+			$(keyN).click(chooseNo);
 			keydiv.append(keyY);
 			keydiv.append(keyN);
 			element.append(keydiv);
@@ -59,9 +59,10 @@ function overwriteLine(element, text, delay) {
 }
 
 
-function chooseYes($body) {
+function chooseYes() {
 	clearInterval(blinkIntervalId);
-    $body.off('keypress touchstart');
+    $('body').off('keypress touchstart');
+    removeButtons();
     $output = $('.output4');
     printLine($output, '     Great! We\'ll see you at the party then.');
     printLine($output, '     expect DJ Music, Food, Tschunk, Games and more');
@@ -85,9 +86,10 @@ function chooseYes($body) {
     printLine($output, '');
 }
 
-function chooseNo($body) {
+function chooseNo() {
 	clearInterval(blinkIntervalId);
-    $body.off('keypress');
+    $('body').off('keypress');
+    removeButtons();
     $output = $('.output4');
     globalDelay = 0;
     printLine($output, '     Sorry to hear! You\'re missing out on a great experience.');
@@ -97,7 +99,7 @@ function chooseNo($body) {
     printLine($output, '');
 }
 
-
+var blinkIntervalId;
 $(function () {
 
     var logoBW72 = [
@@ -175,7 +177,7 @@ $(function () {
     }
 
     $output = $('.output3');
-    printLine($output, '     are you coming?  <span id="underscore">_</span>');
+    printLine($output, '     are you coming?  <span id="textinput"></span><span id="underscore">_</span>');
     addButtons($output);
 
     var $body = $('body');
@@ -190,18 +192,20 @@ $(function () {
             globalDelay = 0;
 
             var underscore = true;
-            var blinkIntervalId = setInterval(function () {
+            blinkIntervalId = setInterval(function () {
                 globalDelay = 0;
-                //console.log('interval!');
-                if (underscore) {
-                	document.getElementById("underscore").style="visibility:hidden;";
-                    underscore = false;
-                } else {
-                    document.getElementById("underscore").style="visibility:visible;";
-                    underscore = true;
+                var underscorelem = document.getElementById("underscore");
+                if (underscorelem){
+                    //console.log('interval!');
+                    if (underscore) {
+                        underscorelem.style="visibility:hidden;";
+                        underscore = false;
+                    } else {
+                        underscorelem.style="visibility:visible;";
+                        underscore = true;
+                    }
                 }
             }, 500);
-
 
 
             $body.on('keypress', function (event) {
@@ -223,15 +227,15 @@ $(function () {
                 if (event.which === 111 && input === 'n') {
                     input += 'o';
                 }
-                if (event.type == 'touchstart') {
-                    input = 'yes';
+                if (event.which === 8 && input.length > 0) {
+                    input = input.substring(0,input.length-1);
                 }
-                overwriteLine($output, '     are you coming?  ' + input + '_');
-                if ((event.which === 13 || event.type == 'touchstart') && (input === 'y' || input === 'yes')) {
-                    chooseYes($body);
+                $("#textinput").text(input);
+                if ((event.which === 13) && (input === 'y' || input === 'yes')) {
+                    chooseYes();
                 }
                 if (event.which === 13 && (input === 'n' || input === 'no')) {
-                    chooseNo($body);
+                    chooseNo();
                 }
             });
         },
