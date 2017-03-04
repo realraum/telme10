@@ -42,16 +42,17 @@ pre a:hover {
     color: #5cb85c;
 }
 
-a.key {
-	font-family: KeyCaps;
-	font-size: 30pt;
-	color:black;
-	background-color:white;
-	padding:0;
-	margin:3px;
+.keydiv {
+    float: right;
+    margin-right: 40%;
+    color: #5cb85c;
+    overflow: hidden;
 }
 
-div.keydiv {
-	float:right; margin-right:40%;
-	color:black;
+a.key {
+	font-family: KeyCaps;
+	font-size: 3em;
+    line-height: 2em;
+	padding: 0;
+	margin: 3px;
 }

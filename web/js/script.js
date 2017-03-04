@@ -14,34 +14,29 @@ function printLine(element, text, delay) {
     )
 }
 
-var keydiv;
+var $keys;
 function addButtons(element) {
     var delay = defaultDelay;
     globalDelay += delay;
     setTimeout(
         function() {
-			keydiv = document.createElement("div");
-			keydiv.setAttribute("class","keydiv");
-			var keyY = document.createElement("a");
-			keyY.setAttribute("class","key");
-			keyY.append(document.createTextNode("Y"))
-			$(keyY).click(chooseYes);
-			var keyN = document.createElement("a");
-			keyN.setAttribute("class","key");
-			keyN.append(document.createTextNode("N"));
-			$(keyN).click(chooseNo);
-			keydiv.append(keyY);
-			keydiv.append(keyN);
-			element.append(keydiv);
-            window.scrollTo(0,document.body.scrollHeight);
+            $keys = $('<div class="keydiv">');
+            var $keyY = $('<a class="key">Y</a>');
+            var $keyN = $('<a class="key">N</a>');
+            $keyY.click(chooseYes);
+            $keyN.click(chooseNo);
+            $keys.append($keyY);
+            $keys.append($keyN);
+            element.append($keys);
+            window.scrollTo(0, document.body.scrollHeight);
         },
         globalDelay
     )
 }
 
 function removeButtons() {
-	if (keydiv)	{
-		keydiv.parentElement.removeChild(keydiv);
+	if ($keys) {
+        $keys.remove();
 	}
 }
 
@@ -63,40 +58,40 @@ function chooseYes() {
 	clearInterval(blinkIntervalId);
     $('body').off('keypress touchstart');
     removeButtons();
-    $output = $('.output4');
+    var $output = $('.output4');
     printLine($output, '     Great! We\'ll see you at the party then.');
     printLine($output, '     expect DJ Music, Food, Tschunk, Games and more');
-    printLine($output, '');
+    printLine($output, '', 0);
     printLine($output, '     2017-03-18 from 18:00 till it\'s over');
-    printLine($output, '');
+    printLine($output, '', 0);
     printLine($output, '     Find the place:');
     printLine($output, '     realraum, Brockmanngasse 15, 8010 Graz');
     printLine($output, '     <a href="http://osm.org/go/0Iz~oIpTW?m=&node=668061696">http://osm.org/go/0Iz~oIpTW?m=&node=668061696</a>');
-    printLine($output, '');
+    printLine($output, '', 0);
     printLine($output, '     Save the date:');
     printLine($output, '     <a href="https://plus.google.com/u/0/events/cqiq6003lok2qd9jcqmh4u4p8d4">https://plus.google.com/u/0/events/cqiq6003lok2qd9jcqmh4u4p8d4</a>');
     printLine($output, '     <a href="https://10.r3.at/10r3.ics">https://10.r3.at/10r3.ics</a>');
-    printLine($output, '');
+    printLine($output, '', 0);
     printLine($output, '     Get more Info:');
     printLine($output, '     <a href="https://wiki.realraum.at/unterkunft">https://wiki.realraum.at/unterkunft</a>');
     printLine($output, '     idle at <a href="irc://irc.oftc.net/#realraum">irc://irc.oftc.net/#realraum</a>');
 
-    printLine($output, '');
+    printLine($output, '', 0);
     printLine($output, '         <a href="https://github.com/realraum/telme10">https://github.com/realraum/telme10</a>');
-    printLine($output, '');
+    printLine($output, '', 0);
 }
 
 function chooseNo() {
 	clearInterval(blinkIntervalId);
     $('body').off('keypress');
     removeButtons();
-    $output = $('.output4');
+    var $output = $('.output4');
     globalDelay = 0;
     printLine($output, '     Sorry to hear! You\'re missing out on a great experience.');
 
-    printLine($output, '');
-    printLine($output, '         https://github.com/realraum/telme10');
-    printLine($output, '');
+    printLine($output, '', 0);
+    printLine($output, '         <a href="https://github.com/realraum/telme10">https://github.com/realraum/telme10</a>');
+    printLine($output, '', 0);
 }
 
 var blinkIntervalId;
@@ -148,27 +143,27 @@ $(function () {
     printLine($output, 'Connected to 10.r3.at.');
     printLine($output, 'Escape character is \'^]\'.');
 
-    printLine($output, '');
-    printLine($output, '');
+    printLine($output, '', 0);
+    printLine($output, '', 0);
     for (var i = 0; i < logoBW72.length; i++) {
         printLine($output, logoBW72[i], 10);
     }
-    printLine($output, '');
+    printLine($output, '', 0);
     printLine($output, '       Hello!');
-    printLine($output, '');
+    printLine($output, '', 0);
 
     printLine($output, '     Did you know: realraum will be celebrating its 10th birthday', 1000);
     printLine($output, '     on the 18th of March 2017?');
-    printLine($output, '');
+    printLine($output, '', 0);
 
     printLine($output, '     you should come by!', 1000);
-    printLine($output, '');
+    printLine($output, '', 0);
 
     printLine($output, '     fun fun fun!', 3000);
-    printLine($output, '');
+    printLine($output, '', 0);
 
     printLine($output, '     come to the party ... we mean it!', 3000);
-    printLine($output, '');
+    printLine($output, '', 0);
     printLine($output, '     you have now 5s to decide:');
 
     $output = $('.output2');
@@ -194,14 +189,14 @@ $(function () {
             var underscore = true;
             blinkIntervalId = setInterval(function () {
                 globalDelay = 0;
-                var underscorelem = document.getElementById("underscore");
-                if (underscorelem){
+                var $underscoreElem = $('#underscore');
+                if ($underscoreElem){
                     //console.log('interval!');
                     if (underscore) {
-                        underscorelem.style="visibility:hidden;";
+                        $underscoreElem.hide();
                         underscore = false;
                     } else {
-                        underscorelem.style="visibility:visible;";
+                        $underscoreElem.show();
                         underscore = true;
                     }
                 }
@@ -228,7 +223,7 @@ $(function () {
                     input += 'o';
                 }
                 if (event.which === 8 && input.length > 0) {
-                    input = input.substring(0,input.length-1);
+                    input = input.substring(0, input.length - 1);
                 }
                 $("#textinput").text(input);
                 if ((event.which === 13) && (input === 'y' || input === 'yes')) {
@@ -241,12 +236,5 @@ $(function () {
         },
         globalDelay
     );
-
-
-
-
-
-
-
 
 });
