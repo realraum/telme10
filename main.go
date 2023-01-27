@@ -71,8 +71,8 @@ func (g Greeter) Exec(c *telgo.Client, args []string) bool {
 	if wait(1*time.Second, c.Cancel) {
 		return true
 	}
-	c.Sayln("     Did you know: realraum will be celebrating its 10th birthday")
-	c.Sayln("     on the 18th of March 2017?")
+	c.Sayln("     Did you know: realraum will be celebrating its 16th birthday")
+	c.Sayln("     on the First of April 2023?")
 	c.Sayln("")
 
 	if wait(1*time.Second, c.Cancel) {
@@ -128,15 +128,14 @@ func answer(c *telgo.Client, args []string) bool {
 		c.Sayln("")
 		c.Sayln("     expect DJ Music, Food, Tschunk, Games and more")
 		c.Sayln("")
-		c.Sayln("     2017-03-18 from 18:00 till it's over")
+		c.Sayln("     2023-04-01 from 19:00 till it's over")
 		c.Sayln("")
 		c.Sayln("     Find the place:")
 		c.Sayln("     realraum, Brockmanngasse 15, 8010 Graz")
 		c.Sayln("     http://osm.org/go/0Iz~oIpTW?m=&node=668061696")
 		c.Sayln("")
 		c.Sayln("     Save the date:")
-		c.Sayln("     https://plus.google.com/u/0/events/cqiq6003lok2qd9jcqmh4u4p8d4")
-		c.Sayln("     https://10.r3.at/10r3.ics")
+		c.Sayln("     https://0x10.r3.at/0x10r3.ics")
 		c.Sayln("")
 		c.Sayln("     Get more Info:")
 		c.Sayln("     https://wiki.realraum.at/unterkunft")
