@@ -166,7 +166,7 @@ func answer(c *telgo.Client, args []string) bool {
 func main() {
 	cmdlist := make(telgo.CmdList)
 
-	listeners, err := activation.Listeners(true)
+	listeners, err := activation.Listeners()
 	if err != nil {
 		fmt.Printf("error while getting socket form systemd", err)
 		os.Exit(1)

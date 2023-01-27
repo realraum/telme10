@@ -1,0 +1,4 @@
+github.com/coreos/go-systemd v0.0.0-20191104093116-d3cd4ed1dbcf h1:iW4rZ826su+pqaw19uhpSCzhj44qo35pNgKFGqzDKkU=
+github.com/coreos/go-systemd v0.0.0-20191104093116-d3cd4ed1dbcf/go.mod h1:F5haX7vjVVG0kc13fIWeqUViNPyEJxv/OmvnBo0Yme4=
+github.com/spreadspace/telgo v0.0.0-20170609015223-7277b0d8090e h1:lhFaE8l5AfSEzH4OW+9BUAo+BuYLe21zuHwWX1YEZHw=
+github.com/spreadspace/telgo v0.0.0-20170609015223-7277b0d8090e/go.mod h1:kvvhiAI5nvwI4SZrVH9vRa3MTjkcYm3tElmmh+bYuEI=
