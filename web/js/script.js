@@ -164,7 +164,7 @@ $(function () {
 
     printLine($output, '     come to the party ... we mean it!', 3000);
     printLine($output, '', 0);
-    printLine($output, '     you have now 5s to decide:');
+    printLine($output, '     you now have 5s to decide:');
 
     $output = $('.output2');
     for (var i = 0; i <= 100; i++) {

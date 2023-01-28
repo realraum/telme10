@@ -92,7 +92,7 @@ func (g Greeter) Exec(c *telgo.Client, args []string) bool {
 	}
 	c.Sayln("     come to the party ... we mean it!")
 	c.Sayln("")
-	c.Sayln("     you have now 10s to decide:")
+	c.Sayln("     you now have 10s to decide:")
 
 	c.Say("       deciding ...   0.0%%\r")
 DECISION:
