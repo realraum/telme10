@@ -2,15 +2,36 @@
 Description=realraum birthday telnet server
 After=local-fs.target
 
+
 [Service]
 User=telme10
 Group=telme10
 Type=simple
-ExecStart=/usr/local/bin/telme10
-PrivateTmp=yes
-PrivateDevices=yes
-ProtectSystem=full
-ProtectHome=yes
+ExecStart=/srv/telme10/telme10
+
+CPUAccounting=true
+CPUQuota=30%
+MemoryAccounting=yes
+MemoryHigh=30%
+
+AmbientCapabilities=
+CapabilityBoundingSet=
+DeviceAllow=/dev/null rw
+DevicePolicy=strict
+LockPersonality=true
+MemoryDenyWriteExecute=true
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectControlGroups=true
+ProtectHome=true
+ProtectKernelModules=true
+ProtectSystem=strict
+RemoveIPC=true
+RestrictNamespaces=true
+RestrictRealtime=true
+RestrictAddressFamilies=AF_UNIX
+SystemCallArchitectures=native
+
 
 [Install]
 WantedBy=multi-user.target
