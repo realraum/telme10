@@ -147,8 +147,8 @@ func answer(c *telgo.Client, args []string) bool {
 	case "no":
 		c.Sayln("")
 		c.Sayln("     Sorry to hear! You're missing out on a great experience.")
-		c.Sayln("     We trust in your ability to listen to great music and have lot's")
-		c.Sayln("     of fun with great food and tschunk at home though.")
+		c.Sayln("     We trust in your ability to listen to great music and have lots")
+		c.Sayln("     of fun with great food and Tschunk at home though.")
 		fmt.Printf("client(%s) won't show up :(\n", c.Conn.RemoteAddr())
 	default:
 		c.Sayln("       yes or no?")
