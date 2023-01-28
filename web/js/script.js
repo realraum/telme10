@@ -62,19 +62,19 @@ function chooseYes() {
     printLine($output, '     Great! We\'ll see you at the party then.');
     printLine($output, '     expect DJ Music, Food, Tschunk, Games and more');
     printLine($output, '', 0);
-    printLine($output, '     2017-03-18 from 18:00 till it\'s over');
+    printLine($output, '     2023-04-01 from 19:00 till it\'s over');
     printLine($output, '', 0);
     printLine($output, '     Find the place:');
     printLine($output, '     realraum, Brockmanngasse 15, 8010 Graz');
-    printLine($output, '     <a href="http://osm.org/go/0Iz~oIpTW?m=&node=668061696">http://osm.org/go/0Iz~oIpTW?m=&node=668061696</a>');
+    printLine($output, '     <a href="https://www.openstreetmap.org/node/668061696">https://www.openstreetmap.org/node/668061696</a>');
     printLine($output, '', 0);
     printLine($output, '     Save the date:');
-    printLine($output, '     <a href="https://plus.google.com/u/0/events/cqiq6003lok2qd9jcqmh4u4p8d4">https://plus.google.com/u/0/events/cqiq6003lok2qd9jcqmh4u4p8d4</a>');
-    printLine($output, '     <a href="https://10.r3.at/10r3.ics">https://10.r3.at/10r3.ics</a>');
+    printLine($output, '     <a href="https://0x10.r3.at/0x10r3.ics">https://0x10.r3.at/0x10r3.ics</a>');
     printLine($output, '', 0);
     printLine($output, '     Get more Info:');
     printLine($output, '     <a href="https://wiki.realraum.at/unterkunft">https://wiki.realraum.at/unterkunft</a>');
     printLine($output, '     idle at <a href="irc://irc.oftc.net/#realraum">irc://irc.oftc.net/#realraum</a>');
+    printLine($output, '     or join <a href="https://matrix.to/#/#_oftc_#realraum:matrix.org">matrix.to/#/#_oftc_#realraum:matrix.org</a>');
 
     printLine($output, '', 0);
     printLine($output, '         <a href="https://github.com/realraum/telme10">https://github.com/realraum/telme10</a>');
@@ -139,8 +139,8 @@ $(function () {
     var $output = $('.output');
     $output.text('');
 
-    printLine($output, 'Trying 2a02:3e0:4000:1::56...');
-    printLine($output, 'Connected to 10.r3.at.');
+    printLine($output, 'Trying 178.63.180.140...');
+    printLine($output, 'Connected to 0x10.r3.at.');
     printLine($output, 'Escape character is \'^]\'.');
 
     printLine($output, '', 0);
@@ -152,8 +152,8 @@ $(function () {
     printLine($output, '       Hello!');
     printLine($output, '', 0);
 
-    printLine($output, '     Did you know: realraum will be celebrating its 10th birthday', 1000);
-    printLine($output, '     on the 18th of March 2017?');
+    printLine($output, '     Did you know: realraum will be celebrating its 16th birthday', 1000);
+    printLine($output, '     on the 1st of April 2023?');
     printLine($output, '', 0);
 
     printLine($output, '     you should come by!', 1000);

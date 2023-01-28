@@ -72,7 +72,7 @@ func (g Greeter) Exec(c *telgo.Client, args []string) bool {
 		return true
 	}
 	c.Sayln("     Did you know: realraum will be celebrating its 16th birthday")
-	c.Sayln("     on the First of April 2023?")
+	c.Sayln("     on the 1st of April 2023?")
 	c.Sayln("")
 
 	if wait(1*time.Second, c.Cancel) {
@@ -132,7 +132,7 @@ func answer(c *telgo.Client, args []string) bool {
 		c.Sayln("")
 		c.Sayln("     Find the place:")
 		c.Sayln("     realraum, Brockmanngasse 15, 8010 Graz")
-		c.Sayln("     http://osm.org/go/0Iz~oIpTW?m=&node=668061696")
+		c.Sayln("     https://www.openstreetmap.org/node/668061696")
 		c.Sayln("")
 		c.Sayln("     Save the date:")
 		c.Sayln("     https://0x10.r3.at/0x10r3.ics")
@@ -140,6 +140,7 @@ func answer(c *telgo.Client, args []string) bool {
 		c.Sayln("     Get more Info:")
 		c.Sayln("     https://wiki.realraum.at/unterkunft")
 		c.Sayln("     idle at irc://irc.oftc.net/#realraum")
+		c.Sayln("     or join matrix.to/#/#_oftc_#realraum:matrix.org")
 		fmt.Printf("client(%s) wants to come to the party!\n", c.Conn.RemoteAddr())
 	case "n":
 		fallthrough
