@@ -168,7 +168,7 @@ func main() {
 
 	listeners, err := activation.Listeners()
 	if err != nil {
-		fmt.Printf("error while getting socket form systemd", err)
+		fmt.Printf("error while getting socket from systemd: %s", err)
 		os.Exit(1)
 	}
 
