@@ -7,14 +7,14 @@ PRODID:-//GridMind//NONSGML GridCalendar 0.9.577 2013-12-03 17:08 +0100//E
 BEGIN:VEVENT
 UID:realraum Grid Calendar-ba60f4c3f99b69e96569dcaa976cb7c3-1523@grical.re
  alraum.at
-DTSTART:20230401T170000Z
+DTSTART:20230401T160000Z
 DTEND:20230402T040000Z
 CATEGORIES:realraum,party,birthday
 CLASS:PUBLIC
 DESCRIPTION:Wir werden 0x10! Feiert mit uns 16 Jahre realraum!\n\nSave the
   date: 1. April\, kein Scherz.\n\n---\n\nWe're turning 0x10! Celebrate 16 
  years realraum with us!\n\nSave the date: 1st of April\, no joke.
-DTSTAMP:20230128T014646
+DTSTAMP:20230317T212714
 GEO:47.0655508241\;15.450553894
 LOCATION:Brockmanngasse 15\, 8010 Graz
 SUMMARY:realraum 16 Jahre Feier

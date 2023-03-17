@@ -128,7 +128,7 @@ func answer(c *telgo.Client, args []string) bool {
 		c.Sayln("")
 		c.Sayln("     expect DJ Music, Food, Tschunk, Games and more")
 		c.Sayln("")
-		c.Sayln("     2023-04-01 from 19:00 till it's over")
+		c.Sayln("     2023-04-01 from 18:00 till it's over")
 		c.Sayln("")
 		c.Sayln("     Find the place:")
 		c.Sayln("     realraum, Brockmanngasse 15, 8010 Graz")
