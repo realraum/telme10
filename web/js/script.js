@@ -62,7 +62,7 @@ function chooseYes() {
     printLine($output, '     Great! We\'ll see you at the party then.');
     printLine($output, '     expect DJ Music, Food, Tschunk, Games and more');
     printLine($output, '', 0);
-    printLine($output, '     2023-04-01 from 19:00 till it\'s over');
+    printLine($output, '     2023-04-01 from 18:00 till it\'s over');
     printLine($output, '', 0);
     printLine($output, '     Find the place:');
     printLine($output, '     realraum, Brockmanngasse 15, 8010 Graz');
