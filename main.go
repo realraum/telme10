@@ -1,4 +1,4 @@
-//
+
 //  telme10
 //
 // Copyright (c) 2016-2023 Christian Pointner <equinox@realraum.at>
@@ -71,20 +71,24 @@ func (g Greeter) Exec(c *telgo.Client, args []string) bool {
 	if wait(1*time.Second, c.Cancel) {
 		return true
 	}
-	c.Sayln("     Did you know: realraum will be celebrating its 16th birthday")
-	c.Sayln("     on the 1st of April 2023?")
+	c.Sayln("     Did you know: realraum will be celebrating its 18th birthday")
+	c.Sayln("     on the 24th of May 2025?")
 	c.Sayln("")
 
 	if wait(1*time.Second, c.Cancel) {
 		return true
 	}
-	c.Sayln("     you should come by!")
+	c.Sayln("  are we going to come of age?")
+	c.Sayln("  will be become serious now? ")
+	c.Sayln("")
+	c.Sayln("       no way!")
 	c.Sayln("")
 
 	if wait(3*time.Second, c.Cancel) {
 		return true
 	}
-	c.Sayln("     fun fun fun!")
+	c.Sayln("")
+	c.Sayln("  stop by! party with us! mehr feiner Fug!")
 	c.Sayln("")
 
 	if wait(3*time.Second, c.Cancel) {
@@ -126,16 +130,16 @@ func answer(c *telgo.Client, args []string) bool {
 		c.Sayln("")
 		c.Sayln("     Great! We'll see you at the party then.")
 		c.Sayln("")
-		c.Sayln("     expect DJ Music, Food, Tschunk, Games and more")
+		c.Sayln("     expect DJ Music, Food, Tschunk and more")
 		c.Sayln("")
-		c.Sayln("     2023-04-01 from 18:00 till it's over")
+		c.Sayln("     2025-05-24 from 18:00 till it's over")
 		c.Sayln("")
 		c.Sayln("     Find the place:")
 		c.Sayln("     realraum, Brockmanngasse 15, 8010 Graz")
-		c.Sayln("     https://www.openstreetmap.org/node/668061696")
+		c.Sayln("     https://www.openstreetmap.org/relation/17044478")
 		c.Sayln("")
 		c.Sayln("     Save the date:")
-		c.Sayln("     https://0x10.r3.at/0x10r3.ics")
+		c.Sayln("     https://18.r3.at/18r3.ics")
 		c.Sayln("")
 		c.Sayln("     Get more Info:")
 		c.Sayln("     https://wiki.realraum.at/unterkunft")

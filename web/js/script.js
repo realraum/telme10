@@ -62,14 +62,14 @@ function chooseYes() {
     printLine($output, '     Great! We\'ll see you at the party then.');
     printLine($output, '     expect DJ Music, Food, Tschunk, Games and more');
     printLine($output, '', 0);
-    printLine($output, '     2023-04-01 from 18:00 till it\'s over');
+    printLine($output, '     2025-05-24 from 18:00 till it\'s over');
     printLine($output, '', 0);
     printLine($output, '     Find the place:');
     printLine($output, '     realraum, Brockmanngasse 15, 8010 Graz');
-    printLine($output, '     <a href="https://www.openstreetmap.org/node/668061696">https://www.openstreetmap.org/node/668061696</a>');
+    printLine($output, '     <a href="https://www.openstreetmap.org/relation/17044478">https://www.openstreetmap.org/node/668061696</a>');
     printLine($output, '', 0);
     printLine($output, '     Save the date:');
-    printLine($output, '     <a href="https://0x10.r3.at/0x10r3.ics">https://0x10.r3.at/0x10r3.ics</a>');
+    printLine($output, '     <a href="https://18.r3.at/18r3.ics">https://18.r3.at/18r3.ics</a>');
     printLine($output, '', 0);
     printLine($output, '     Get more Info:');
     printLine($output, '     <a href="https://wiki.realraum.at/unterkunft">https://wiki.realraum.at/unterkunft</a>');
@@ -140,7 +140,7 @@ $(function () {
     $output.text('');
 
     printLine($output, 'Trying 178.63.180.140...');
-    printLine($output, 'Connected to 0x10.r3.at.');
+    printLine($output, 'Connected to 18.r3.at.');
     printLine($output, 'Escape character is \'^]\'.');
 
     printLine($output, '', 0);
@@ -152,17 +152,18 @@ $(function () {
     printLine($output, '       Hello!');
     printLine($output, '', 0);
 
-    printLine($output, '     Did you know: realraum will be celebrating its 16th birthday', 1000);
-    printLine($output, '     on the 1st of April 2023?');
+    printLine($output, '     Did you know: realraum will be celebrating its 18th birthday', 1000);
+    printLine($output, '     on the 24th of May 2025?');
     printLine($output, '', 0);
 
-    printLine($output, '     you should come by!', 1000);
+    printLine($output, '     are we going to come of age?', 1000);
+    printLine($output, '     will be become serious now? ', 1000);
     printLine($output, '', 0);
 
-    printLine($output, '     fun fun fun!', 3000);
+    printLine($output, '          no way!', 3000);
     printLine($output, '', 0);
 
-    printLine($output, '     come to the party ... we mean it!', 3000);
+    printLine($output, '     stop by! party with us! mehr feiner Fug!', 3000);
     printLine($output, '', 0);
     printLine($output, '     you now have 5s to decide:');
 

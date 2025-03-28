@@ -1,6 +1,6 @@
 # telme10
 
-Telnet-based invitation to realraum's 16th birthday party.
+Telnet-based invitation to realraum's 16th and 18th birthday party.
 
 Try it out:  `telnet 0x10.r3.at`
 
