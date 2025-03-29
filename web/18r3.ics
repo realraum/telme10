@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+PRODID:-//GridMind//NONSGML GridCalendar 0.9.577 2013-12-03 17:08 +0100//E
+ N
+BEGIN:VEVENT
+UID:realraum Grid Calendar-ba60f4c3f99b69e96569dcaa976cb7c3-1736@grical.re
+ alraum.at
+DTSTART:20250524T160000Z
+DTEND:20250525T010000Z
+CATEGORIES:realraum,party,volljährig,18yrs
+CLASS:PUBLIC
+DESCRIPTION:der realraum wird 18!!!! Save the Date! Party like crazy with 
+ us\, help us stay young in mind!
+DTSTAMP:20250328T232908
+GEO:47.0654887055\;15.450553894
+LOCATION:realraum\,\nBrockmanngasse 15\,\n8010 Graz
+SUMMARY:realraum 18 Jahre Geburtstagsparty
+URL:http://grical.realraum.at/e/show/1736/
+END:VEVENT
+END:VCALENDAR
